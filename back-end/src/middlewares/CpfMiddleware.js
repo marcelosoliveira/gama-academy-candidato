@@ -1,7 +1,7 @@
 const candidatoService = require('../services/CandidatoService');
 const status = require('http-status-codes');
 
-const CpfMiddleware = async (req, res, next) => {
+const CpfNotExistMiddleware = async (req, res, next) => {
     const { cpf } = req.body;
     const cpfExist = await candidatoService.getByCpf(cpf);
 
@@ -12,7 +12,7 @@ const CpfMiddleware = async (req, res, next) => {
 }
 
 const CpfExistsMiddleware = async (req, res, next) => {
-    const { cpf } = req.body;
+    const { cpf } = req.params;
     const cpfExist = await candidatoService.getByCpf(cpf);
 
     if (cpfExist) return next();
@@ -22,6 +22,6 @@ const CpfExistsMiddleware = async (req, res, next) => {
 }
 
 module.exports = { 
-    CpfMiddleware,
+    CpfNotExistMiddleware,
     CpfExistsMiddleware,
 };

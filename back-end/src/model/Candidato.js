@@ -16,14 +16,14 @@ const getByCpf = async (cpf) => {
   // };
   
   const create = async (
-    name, cpf, cargo, email, dataNasc, civil, sexo, cep, endereco, bairro, 
-    logradouro, numero, cidade, tel1, tel2, celular, contato, rg, veiculo, cnh
+    nome, cpf, cargo, email, dataNasc, civil, sexo, cep, endereco, bairro, 
+    cidade, tel_fixo1, tel_fixo2, celular, contato, identidade, possui_veiculo, habilitacao
     ) => conn.execute(
-    `INSERT INTO candidatos (name, cpf, cargo, email, dataNasc, civil, sexo, cep, endereco, bairro, 
-      logradouro, numero, cidade, tel1, tel2, celular, contato, rg, veiculo, cnh) 
+    `INSERT INTO candidatos (nome, cpf, cargo, email, dataNasc, civil, sexo, cep, endereco, bairro, 
+      logradouro, numero, cidade, tel_fixo1, tel_fixo2, celular, contato, identidade, possui_veiculo, habilitacao) 
     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, 
-    [name, cpf, cargo, email, dataNasc, civil, sexo, cep, endereco, bairro, 
-      logradouro, numero, cidade, tel1, tel2, celular, contato, rg, veiculo, cnh],
+    [nome, cpf, cargo, email, dataNasc, civil, sexo, cep, endereco, bairro, 
+      logradouro, numero, cidade, tel_fixo1, tel_fixo2, celular, contato, identidade, possui_veiculo, habilitacao],
   );
   
   module.exports = { 

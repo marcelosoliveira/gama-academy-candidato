@@ -1,0 +1,41 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "Banco de Curriculos",
+      "description": "API Banco de Curriculos com swagger",
+      "version": "1.0"
+    },
+    "host": "localhost:3000",
+    "basePath": "/",
+    "schemes": [
+      "http"
+    ],
+    "paths": {
+      "/candidato/buscar": {
+        "get": {
+          "description": "Busca candidato pelo cpf",
+          "operationId": "Cadastro",
+          "parameters": [{
+            "name": "CPF",
+            "in": "path",
+            "description": "Insira um cpf válido.",
+            "required": true
+          }],
+          "responses": {}
+        }
+      },
+      "/candidato/cadastrar": {
+        "post": {
+          "description": "Cadastra curriculos dos candidatos para vagas de emprego.",
+          "operationId": "Cadastro",
+          "parameters['obj']": {
+            "in": "body",
+            "description": "User information.",
+            "required": true,
+            "schema": { "$ref": "#/definitions/AddUser" }
+        },
+          "responses": {}
+        }
+      }
+    }
+}

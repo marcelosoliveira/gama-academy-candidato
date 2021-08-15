@@ -1,12 +1,12 @@
 const candidato = require('../model/Candidato');
 
 const create = async (
-    { name, cpf, cargo, email, dataNasc, civil, sexo, cep, endereco, bairro, 
-        logradouro, numero, cidade, tel1, tel2, celular, contato, rg, veiculo, cnh }
+    { nome, cpf, cargo, email, dataNasc, civil, sexo, cep, endereco, bairro, 
+        cidade, tel_fixo1, tel_fixo2, celular, contato, identidade, possui_veiculo, habilitacao }
     ) => {
 
-        candidato.create(name, cpf, cargo, email, dataNasc, civil, sexo, cep, endereco, bairro, 
-            logradouro, numero, cidade, tel1, tel2, celular, contato, rg, veiculo, cnh);
+        candidato.create(nome, cpf, cargo, email, dataNasc, civil, sexo, cep, endereco, bairro, 
+            cidade, tel_fixo1, tel_fixo2, celular, contato, identidade, possui_veiculo, habilitacao);
 };
 
 const getByCpf = async (cpf) => {

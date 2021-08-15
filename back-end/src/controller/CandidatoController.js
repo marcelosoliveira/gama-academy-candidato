@@ -12,7 +12,7 @@ const create = async (req, res) => {
 
 const getByCpf = async (req, res) => {
     try {
-        const { cpf } = req.body;
+        const { cpf } = req.params;
         const candidato = await candidatoService.getByCpf(cpf);
         res.status(status.OK).json(candidato);        
     } catch (error) {

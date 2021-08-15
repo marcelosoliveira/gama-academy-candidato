@@ -1,12 +1,13 @@
 const express = require('express');
 const status = require('http-status-codes');
-const { CpfExistsMiddleware, CpfMiddleware } = require('../middlewares/CpfMiddleware');
+const { CpfExistsMiddleware, CpfNotExistMiddleware } = require('../middlewares/CpfMiddleware');
 const { CepMiddleware } = require('../middlewares/CepMiddleware');
+const { validaCampos } = require('../middlewares/ValidaCamposMiddleware');
 const { create, getByCpf } = require('../controller/CandidatoController');
 
 const router = express.Router();
 
-router.post('/cadastrar', CpfMiddleware, CepMiddleware, create);
+router.post('/cadastrar', validaCampos, CpfNotExistMiddleware, CepMiddleware, create);
 router.get('/buscar', CpfExistsMiddleware, getByCpf);
 
 router.use((err, _req, res, _next) => {
