@@ -12,7 +12,7 @@ CREATE TABLE candidatos (
   civil VARCHAR(30),
   sexo VARCHAR(20),
   cep VARCHAR(9) NOT NULL,
-  endereco VARCHAR(100) NOT NULL,,
+  endereco VARCHAR(100) NOT NULL,
   bairro VARCHAR(50) NOT NULL,
   cidade VARCHAR(50) NOT NULL,
   tel_fixo1 VARCHAR(14),
