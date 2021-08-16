@@ -8,7 +8,7 @@ const { create, getByCpf } = require('../controller/CandidatoController');
 const router = express.Router();
 
 router.post('/cadastrar', validaCampos, CpfNotExistMiddleware, CepMiddleware, create);
-router.get('/buscar', CpfExistsMiddleware, getByCpf);
+router.get('/buscar/:cpf', CpfExistsMiddleware, getByCpf);
 
 router.use((err, _req, res, _next) => {
     res.status(status.INTERNAL_SERVER_ERROR).json({

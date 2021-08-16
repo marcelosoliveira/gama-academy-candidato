@@ -1,8 +1,12 @@
 {
-    "swagger": "2.0",
+    "openapi": "3.0.0",
     "info": {
       "title": "Banco de Curriculos",
       "description": "API Banco de Curriculos com swagger",
+      "termsOfService": "http://localhost:3000/terms",
+      "contact": {
+        "email": "msbobsk8@gmail.com"
+      },
       "version": "1.0"
     },
     "host": "localhost:3000",
@@ -11,30 +15,119 @@
       "http"
     ],
     "paths": {
-      "/candidato/buscar": {
+      "/candidato/buscar/{cpf}": {
         "get": {
+          "summary": "Buscar candidato pelo CPF",
           "description": "Busca candidato pelo cpf",
-          "operationId": "Cadastro",
+          "operationId": "Buscar",
           "parameters": [{
-            "name": "CPF",
+            "name": "cpf",
             "in": "path",
             "description": "Insira um cpf válido.",
-            "required": true
+            "required": true,
+            "type": "string"
           }],
           "responses": {}
         }
       },
       "/candidato/cadastrar": {
         "post": {
+          "summary": "Cadastro de candidato",
           "description": "Cadastra curriculos dos candidatos para vagas de emprego.",
           "operationId": "Cadastro",
-          "parameters['obj']": {
-            "in": "body",
-            "description": "User information.",
-            "required": true,
-            "schema": { "$ref": "#/definitions/AddUser" }
-        },
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/candidato"
+                },
+                "example": {
+                    "nome": "Jhonny Gallus",
+                    "cpf": "333.444.555.34",
+                    "cargo": "Desenvolvedor Java",
+                    "email": "msbobsk8@hotmail.com",
+                    "dataNasc": "08/10/1990",
+                    "civil": "Solteiro",
+                    "sexo": "Masculino",
+                    "cep": "13950-000",
+                    "endereco": "Rua Santa Ester, 130, casa",
+                    "bairro": "São Leopoldo",
+                    "cidade": "Lindóia",
+                    "tel_fixo1": "1938982124",
+                    "tel_fixo2": "1938981435",
+                    "celular": "19998447295",
+                    "contato": "19997654321",
+                    "identidade": "428671239",
+                    "possui_veiculo": "Sim",
+                    "habilitacao": "AB"
+                  }
+              }
+            }
+          },
           "responses": {}
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "candidato": {
+          "type": "object",
+          "properties": {
+            "nome": {
+              "type": "string"
+            },
+            "cpf": {
+              "type": "string"
+            },
+            "cargo": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            },
+            "dataNasc": {
+              "type": "string"
+            },
+            "civil": {
+              "type": "string"
+            },
+            "sexo": {
+              "type": "string"
+            },
+            "cep": {
+              "type": "string"
+            },
+            "endereco": {
+              "type": "string"
+            },
+            "bairro": {
+              "type": "string"
+            },
+            "cidade": {
+              "type": "string"
+            },
+            "tel_fixo1": {
+              "type": "string"
+            },
+            "tel_fixo2": {
+              "type": "string"
+            },
+            "celular": {
+              "type": "string"
+            },
+            "contato": {
+              "type": "string"
+            },
+            "identidade": {
+              "type": "string"
+            },
+            "possui_veiculo": {
+              "type": "string"
+            },
+            "habilitacao": {
+              "type": "string"
+            }
+          }
         }
       }
     }

@@ -5,7 +5,6 @@ const CepMiddleware = async (req, res, next) => {
     const { cep } = req.body;
 
     const { data } = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
-    console.log(data);
 
     if (!data.erro) return next();
 

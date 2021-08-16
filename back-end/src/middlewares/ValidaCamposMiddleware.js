@@ -14,60 +14,59 @@ const validaCampos = (req, res, next) => {
     celular,
   } = req.body;
 
-  if (nome.length < 5 || nome.length > 50 || !nome)
+  if (!nome || nome.length < 5 || nome.length > 50)
     return res
       .status(status.BAD_REQUEST)
-      .json({ message: `Nome: ${nome} inválido!` });
+      .json({ message: `Nome inválido!` });
 
-  if (cpf.length !== 14 || !cpf)
+  if (!cpf || cpf.length !== 14)
     return res
       .status(status.BAD_REQUEST)
-      .json({ message: `CPF: ${cpf} inválido!` });
+      .json({ message: `CPF inválido!` });
 
-  if (cargo.length < 5 || cargo.length > 50 || !cargo)
+  if (!cargo || cargo.length < 5 || cargo.length > 50)
     return res
       .status(status.BAD_REQUEST)
-      .json({ message: `Cargo Profissão: ${cargo} inválido!` });
+      .json({ message: `Cargo Profissão inválido!` });
 
-  if (!email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/) || !email)
+  if (!email || !email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/))
     return res
       .status(status.BAD_REQUEST)
-      .json({ message: `Email: ${email} inválido!` });
+      .json({ message: `Email inválido!` });
 
-  if (
+  if (!dataNasc ||
     dataNasc.match(
       /^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.]((19|20)\\d\\d)$/
-    ) ||
-    !dataNasc
+    )    
   )
     return res
       .status(status.BAD_REQUEST)
-      .json({ message: `Data de Nascimento: ${dataNasc} inválido!` });
+      .json({ message: `Data de Nascimento inválido!` });
 
-  if (cep.length !== 9 || !cep)
+  if (!cep || !cep.match(/^[0-9]{5}-[0-9]{3}$/) || cep.length !== 9)
     return res
       .status(status.BAD_REQUEST)
-      .json({ message: `CEP: ${cep} inválido!` });
+      .json({ message: `CEP inválido!` });
 
-  if (endereco.length < 5 || endereco.length > 50)
+  if (!endereco || endereco.length < 5 || endereco.length > 50)
     return res
       .status(status.BAD_REQUEST)
-      .json({ message: `Endereço: ${endereco} inválido!` });
+      .json({ message: `Endereço inválido!` });
 
-  if (bairro.length < 3 || bairro.length > 50)
+  if (!bairro || bairro.length < 3 || bairro.length > 50)
     return res
       .status(status.BAD_REQUEST)
-      .json({ message: `Bairro: ${bairro} inválido!` });
+      .json({ message: `Bairro inválido!` });
 
-  if (cidade.length < 3 || cidade.length > 50)
+  if (!cidade || cidade.length < 3 || cidade.length > 50)
     return res
       .status(status.BAD_REQUEST)
-      .json({ message: `Cidade: ${cidade} inválido!` });
+      .json({ message: `Cidade inválido!` });
 
-  if (celular.length !== 11 || celular.length !== 10)
+  if (!celular || celular.length !== 11 && celular.length !== 10)
     return res
       .status(status.BAD_REQUEST)
-      .json({ message: `Celular: ${celular} inválido!` });
+      .json({ message: `Celular inválido!` });
 
   next();
 };

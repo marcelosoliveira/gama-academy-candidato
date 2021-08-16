@@ -12,7 +12,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use(
-  '/api-docs',
+  '/swagger.html-ui',
   swaggerUi.serve, 
   swaggerUi.setup(swaggerDocument)
 );
