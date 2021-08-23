@@ -7,7 +7,7 @@ const { create, getByCpf } = require('../controller/CandidatoController');
 
 const router = express.Router();
 
-router.post('/cadastrar', validaCampos, CpfNotExistMiddleware, /*CepMiddleware,*/ create);
+router.post('/cadastrar', validaCampos, CpfNotExistMiddleware, CepMiddleware, create);
 router.get('/buscar/:cpf', CpfExistsMiddleware, getByCpf);
 
 router.use((err, _req, res, _next) => {
