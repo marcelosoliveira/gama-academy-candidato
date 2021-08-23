@@ -1,0 +1,32 @@
+.doc-dados-class {
+    display: flex;
+    justify-content: space-between;
+}
+
+.label-select-column {
+    display: flex;
+    flex-direction: column;
+    width: 31.3%;
+}
+
+.label-select-column-doc {
+    display: flex;
+    flex-direction: column;
+    width: 15.3%;
+}
+
+.label-select-column label {
+    display: block;
+    color: rgba(0,0,0,.87);
+    font-weight: 700;
+    font-size: .92857143em;
+    margin: 0 0 .28571429rem 0
+}
+
+.label-select-column-doc label {
+    display: block;
+    color: rgba(0,0,0,.87);
+    font-weight: 700;
+    font-size: .92857143em;
+    margin: 0 0 .28571429rem 0
+}

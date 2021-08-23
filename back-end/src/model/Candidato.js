@@ -7,13 +7,6 @@ const getByCpf = async (cpf) => {
 
     return candidato;
   };
-
-  // const getByEmail = async (email) => {  
-  //   const [[user]] = await conn.execute(
-  //     'SELECT * FROM users WHERE users.email = ?;', [email],
-  //   );  
-  //   return user;
-  // };
   
   const create = async (
     nome, cpf, cargo, email, dataNasc, civil, sexo, cep, endereco, bairro, 

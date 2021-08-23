@@ -4,6 +4,7 @@ const validaCampos = (req, res, next) => {
   const {
     nome,
     cpf,
+    identidade,
     cargo,
     email,
     dataNasc,
@@ -23,6 +24,11 @@ const validaCampos = (req, res, next) => {
     return res
       .status(status.BAD_REQUEST)
       .json({ message: `CPF inválido!` });
+      
+  if (!identidade || identidade.length !== 12)
+    return res
+      .status(status.BAD_REQUEST)
+      .json({ message: `Identidade inválido!` });
 
   if (!cargo || cargo.length < 5 || cargo.length > 50)
     return res
@@ -63,7 +69,7 @@ const validaCampos = (req, res, next) => {
       .status(status.BAD_REQUEST)
       .json({ message: `Cidade inválido!` });
 
-  if (!celular || celular.length !== 11 && celular.length !== 10)
+  if (!celular || celular.length !== 14 && celular.length !== 13)
     return res
       .status(status.BAD_REQUEST)
       .json({ message: `Celular inválido!` });
