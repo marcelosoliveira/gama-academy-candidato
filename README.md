@@ -17,3 +17,8 @@
 Integração entre a Página de Formulário e o Back-end
     1. Disponibilizar uma API Rest com a funcionalidade de cadastro de candidatos armazenando em um banco de dados.
     2. Disponibilizar a documentação dos recursos Web Services REST - Uso do Swagger.
+
+* Deploy Heroku: https://bookcurriculo.herokuapp.com/
+* Documentação Swagger: https://bookcurriculo-backend.herokuapp.com/swagger-ui.html/
+
+### OBS: A conta do Heroku é de estudante, então quando utilizar os deploys, aguarde até o servidor dar o start(não leva 1 minuto), porque quando não é usado, ele fica oscioso.
